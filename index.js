@@ -52,22 +52,27 @@ let createEmployee = function() {
             return false;
         }
         let fullName = document.getElementById("name").value;
-        // let letters = /^[A-Za-z]+$/;
-        // if (fullName.value.match(letters)) {
-        //     console.log("hello");
-        //     return true;
-        // }
+        let letters = /^[A-Za-z]+$/;
+        if (fullName.match(letters)) {
+            console.log("hello");
+            return true;
+        } else {
+            alert("Name must be characters only !!!");
+        }
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
         let workDays = document.getElementById("datepicker").value;
         let salary = document.getElementById("luongCB").value;
-        if (salary.length < 1000000 || salary.length > 20000000) {
-            console.log("hello");
+        if (salary < 1000000 || salary > 20000000) {
             alert("Invalid salary");
             return false;
         }
         let roles = document.getElementById("chucvu").value;
         let workHours = document.getElementById("gioLam").value;
+        if (workHours < 80 || workHours > 200) {
+            alert("Work hours must be from 80 - 200");
+            return false;
+        }
 
         let newEmployee = new Employee(
             acc,
